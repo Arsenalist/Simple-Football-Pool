@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{entrant.name}}'s Picks</h1>
+<table class="table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Game</th>
+			<th>Picked</th>
+			<th>Actual</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for pick in picks %}
+		<tr>
+			<td>{{pick.home_team}}-{{pick.away_team}}</td>
+			<td>{{pick.picked_home_score}}-{{pick.picked_away_score}}</td>
+			<td>{{pick.actual_home_score}}-{{pick.actual_away_score}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
