@@ -5,6 +5,7 @@
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
+			<th class="text-center">#</th>
 			<th>Name</th>
 			<th>Points</th>
 		</tr>
@@ -12,6 +13,7 @@
 	<tbody>
 		{% for entrant in entrants %}
 		<tr>
+            <td class="text-center">{{loop.index}}
 			<td><a href="/entrant/{{entrant.id}}">{{entrant.name}}</a></td>
 			<td>{{entrant.points}}</td>
 		</tr>

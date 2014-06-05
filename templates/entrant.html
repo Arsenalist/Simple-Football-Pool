@@ -10,6 +10,7 @@
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
+			<th class="text-center">#</th>
 			<th>Game</th>
 			<th class="text-center">Picked</th>
 			<th class="text-center">Actual</th>
@@ -20,6 +21,7 @@
 	<tbody>
 		{% for pick in picks %}
 		<tr>
+            <td class="text-center">{{loop.index}}</td>
 			<td>{{pick.home_team}}-{{pick.away_team}}</td>
 			<td class="text-center">{{pick.picked_home_score}}-{{pick.picked_away_score}}</td>
 			<td class="text-center">{{pick.actual_home_score if pick.actual_home_score != None}}-{{pick.actual_away_score if pick.actual_away_score != None}}</td>
@@ -28,12 +30,12 @@
 		</tr>
 		{% endfor %}
         <tr>
-            <td colspan="3" class="text-right"><strong>Sub-Total</strong></td>
+            <td colspan="4" class="text-right"><strong>Sub-Total</strong></td>
             <td class="text-center"><strong>{{total_points.score}}</strong></td>
             <td class="text-center"><strong>{{total_points.result}}</strong></td>
         </tr>
         <tr>
-            <td colspan="3" class="text-right"><strong>Total Points</strong></td><td colspan="2" class="text-center"><strong>{{total_points.total}}</strong></td>
+            <td colspan="4" class="text-right"><strong>Total Points</strong></td><td colspan="2" class="text-center"><strong>{{total_points.total}}</strong></td>
         </tr>
 	</tbody>
 </table>
