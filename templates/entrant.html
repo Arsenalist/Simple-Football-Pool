@@ -1,22 +1,40 @@
 {% extends "layout.html" %}
+{% block title %}{{entrant.name}}'s Picks | CTC Football Pool{% endblock %}
 {% block content %}
+<ol class="breadcrumb">
+  <li><a href="/">Standings</a></li>
+  <li class="active">{{entrant.name}}'s Picks</li>
+</ol>
+
 <h1>{{entrant.name}}'s Picks</h1>
-<table class="table-bordered table-striped">
+<table class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<th>Game</th>
-			<th>Picked</th>
-			<th>Actual</th>
+			<th class="text-center">Picked</th>
+			<th class="text-center">Actual</th>
+			<th class="text-center">Score Points</th>
+			<th class="text-center">Result Points</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for pick in picks %}
 		<tr>
 			<td>{{pick.home_team}}-{{pick.away_team}}</td>
-			<td>{{pick.picked_home_score}}-{{pick.picked_away_score}}</td>
-			<td>{{pick.actual_home_score}}-{{pick.actual_away_score}}</td>
+			<td class="text-center">{{pick.picked_home_score}}-{{pick.picked_away_score}}</td>
+			<td class="text-center">{{pick.actual_home_score if pick.actual_home_score != None}}-{{pick.actual_away_score if pick.actual_away_score != None}}</td>
+			<td class="text-center">{{pick.score_prediction_points}}</td>
+			<td class="text-center">{{pick.result_prediction_points}}</td>            
 		</tr>
 		{% endfor %}
+        <tr>
+            <td colspan="3" class="text-right"><strong>Sub-Total</strong></td>
+            <td class="text-center"><strong>{{total_points.score}}</strong></td>
+            <td class="text-center"><strong>{{total_points.result}}</strong></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right"><strong>Total Points</strong></td><td colspan="2" class="text-center"><strong>{{total_points.total}}</strong></td>
+        </tr>
 	</tbody>
 </table>
 {% endblock %}

@@ -9,11 +9,13 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>{% block title %}Index{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -27,19 +29,29 @@
 
   <body>
 
-
     <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+        </ul>
+        <h3 class="text-muted">CTC Football Pool</h3>
+      </div>
 
-{% block content %}Index{% endblock %}
+      <div class="row marketing">
+        <div class="col-lg-12">
+                {% block content %}Index{% endblock %}
+        </div>
+      </div>
 
-    </div><!-- /.container -->
+      <div class="footer">
+        <p>&copy; Company 2014</p>
+      </div>
+
+    </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
 
